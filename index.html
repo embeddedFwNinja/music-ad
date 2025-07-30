@@ -1,16 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Music Classes</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugama Sangeetha Music Classes</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 20px; }
-    h1 { color: #8b0000; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #fffaf3, #ffe6cc);
+      color: #4b2e2e;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Mandala Background */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      background: url('mandala.png') no-repeat center;
+      background-size: 300px;
+      opacity: 0.07;
+      z-index: -1;
+    }
+    body::before {
+      top: 5%;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+    }
+    body::after {
+      bottom: 5%;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+    }
+
+    header {
+      background: #b34700;
+      padding: 20px;
+      color: white;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    /* Portrait Styling */
+    .photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #b34700;
+      box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    h1 {
+      color: #b34700;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      width: 120px;
+      height: 3px;
+      background: #b34700;
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+
+    .contact {
+      background: #fff8f0;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
+
+    /* Instrument Graphics (side banners) */
+    .instrument-left, .instrument-right {
+      position: fixed;
+      top: 30%;
+      width: 80px;
+      opacity: 0.2;
+    }
+    .instrument-left { left: 5px; transform: rotate(-10deg); }
+    .instrument-right { right: 5px; transform: rotate(10deg); }
+
+    footer {
+      background: #b34700;
+      color: white;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h1>🎵 Sugama Sangeetha Music Classes 🎵</h1>
-  <p>Now in Mountain House!</p>
-  <p>Contact: 650-398-7286</p>
+  <!-- Instruments -->
+  <img src="veena.png" alt="Veena" class="instrument-left">
+  <img src="flute.png" alt="Flute" class="instrument-right">
+
+  <header>🎵 Sugama Sangeetha Music Classes 🎵</header>
+  
+  <div class="container">
+    <img src="portrait.jpg" alt="Music Teacher Photo" class="photo">
+
+    <h1>Now in Mountain House!</h1>
+    <div class="divider"></div>
+    <h2>Learn Carnatic & Sugama Sangeetha with personal attention</h2>
+    
+    <p>
+      Classes for beginners & advanced students.  
+      Enhance your voice culture, rhythm, and confidence.  
+    </p>
+    
+    <div class="contact">
+      📞 <b>Contact: 650-398-7286</b><br>
+      ✉️ <b>Email: yourmail@example.com</b>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Sugama Sangeetha Classes | Preserving the tradition of Carnatic Music
+  </footer>
 </body>
 </html>
