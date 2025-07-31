@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sugama Sangeetha</title>
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600&family=Tangerine:wght@700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600&family=Tangerine:wght@700&display=swap"
+    rel="stylesheet" />
 
   <style>
+    :root {
+      --primary-color: #b34700;
+      --accent-gold: #d4af37;
+      --accent-maroon: #800000;
+      --background-gradient-start: #fffaf3;
+      --background-gradient-end: #ffe6cc;
+      --text-color: #4b2e2e;
+      --text-shadow: rgba(0, 0, 0, 0.15);
+    }
+
     body {
       margin: 0;
       font-family: 'Noto Serif Kannada', serif;
-      background: linear-gradient(to bottom, #fffaf3, #ffe6cc);
-      color: #4b2e2e;
+      background: linear-gradient(to bottom, var(--background-gradient-start), var(--background-gradient-end));
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.05) 2px, transparent 3px),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 2px, transparent 3px);
+      background-size: 60px 60px;
+      color: var(--text-color);
       text-align: center;
       position: relative;
       overflow-x: hidden;
       min-height: 100vh;
-      padding-bottom: 80px; /* space for footer and diya */
+      padding-bottom: 120px;
     }
 
     /* Mandala Background */
@@ -26,191 +44,323 @@
       content: '';
       position: absolute;
       background: url('mandala.png') no-repeat center;
-      background-size: 300px;
-      opacity: 0.07;
+      background-size: 350px;
+      opacity: 0.05;
       z-index: -1;
+      filter: drop-shadow(0 0 6px rgba(179, 71, 0, 0.3));
     }
+
     body::before {
-      top: 5%;
-      left: -100px;
+      top: 3%;
+      left: -120px;
       width: 400px;
       height: 400px;
+      transform: rotate(5deg);
     }
+
     body::after {
-      bottom: 5%;
-      right: -100px;
+      bottom: 3%;
+      right: -120px;
       width: 400px;
       height: 400px;
+      transform: rotate(-5deg);
     }
 
     header {
-      background: #b34700;
-      padding: 20px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--primary-color));
+      padding: 24px 20px;
       color: white;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
+      font-size: 2.4rem;
+      letter-spacing: 1.5px;
       font-family: 'Tangerine', cursive;
       position: relative;
-      z-index: 10;
+      z-index: 20;
+      text-shadow: 2px 2px 6px var(--text-shadow);
+      border-bottom: 4px solid var(--accent-gold);
+      box-shadow: 0 8px 15px rgba(179, 71, 0, 0.35);
     }
 
     .container {
-      padding: 20px;
-      max-width: 850px;
-      margin: auto;
+      padding: 30px 30px 40px;
+      max-width: 900px;
+      margin: 40px auto 0;
       position: relative;
-      z-index: 10;
-      background: rgba(255, 248, 240, 0.85);
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(179, 71, 0, 0.3);
+      z-index: 15;
+      background: rgba(255, 248, 240, 0.95);
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(179, 71, 0, 0.4);
+      border: 5px solid var(--accent-gold);
+      overflow: hidden;
     }
 
-    /* Portrait Styling */
+    /* Corner Flourishes with CSS */
+    .container::before,
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--accent-gold);
+      border-radius: 10px 0 10px 0;
+      box-shadow: 0 0 6px var(--accent-gold);
+      opacity: 0.3;
+      z-index: 5;
+    }
+
+    .container::before {
+      top: 15px;
+      left: 15px;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      transform: rotate(0deg);
+    }
+
+    .container::after {
+      bottom: 15px;
+      right: 15px;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      transform: rotate(180deg);
+    }
+
     .photo {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #b34700;
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-      margin: 20px 0;
+      border: 6px solid var(--primary-color);
+      box-shadow: 0 10px 20px rgba(179, 71, 0, 0.6);
+      margin: 25px 0 20px;
       position: relative;
       z-index: 10;
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.07);
+      box-shadow: 0 14px 30px var(--accent-gold);
+      cursor: pointer;
     }
 
     h1 {
-      color: #b34700;
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      color: var(--primary-color);
+      font-size: 2.8rem;
+      margin-bottom: 12px;
       font-family: 'Tangerine', cursive;
+      text-shadow: 1px 1px 3px var(--accent-gold);
     }
 
     h2 {
       font-weight: normal;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-size: 1.45rem;
+      margin-bottom: 25px;
+      color: var(--accent-maroon);
+      text-shadow: 0 0 3px var(--accent-gold);
     }
 
+    /* Decorative Divider with CSS */
     .divider {
-      width: 120px;
-      height: 3px;
-      background: #b34700;
-      margin: 15px auto;
-      border-radius: 2px;
+      width: 160px;
+      height: 20px;
+      margin: 20px auto 35px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
+    .divider::before,
+    .divider::after {
+      content: '';
+      width: 40px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--primary-color));
+      box-shadow: 0 0 6px var(--accent-gold);
+      opacity: 0.6;
+    }
+
+    .divider::before {
+      margin-right: 10px;
+    }
+
+    .divider::after {
+      margin-left: 10px;
+    }
+
+    .divider span {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: radial-gradient(circle at center, var(--accent-gold) 40%, transparent 70%);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-gold);
+      position: relative;
+    }
+
+    /* Intro Text */
     .intro {
       margin-top: 20px;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1.12rem;
+      line-height: 1.85;
       text-align: justify;
-      color: #5b3b3b;
-      padding: 0 10px;
-      position: relative;
-      z-index: 10;
+      color: #663300;
+      padding: 0 20px;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 2px #b56f0f;
     }
 
     .contact {
-      background: #fff8f0;
-      padding: 15px;
-      border-radius: 10px;
+      background: linear-gradient(135deg, #fff8f0, #ffe5cc);
+      padding: 20px 35px;
+      border-radius: 15px;
       display: inline-block;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-size: 1.1rem;
-      margin-top: 20px;
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+      font-size: 1.2rem;
+      margin-top: 30px;
+      color: var(--accent-maroon);
+      font-weight: 700;
+      border: 2px solid var(--accent-gold);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
       position: relative;
       z-index: 10;
     }
 
-    /* Fixed Instrument Side Banners */
+    .contact:hover {
+      box-shadow: 0 10px 25px var(--accent-gold);
+      color: var(--primary-color);
+      background: linear-gradient(135deg, #ffe6a0, #ffc864);
+      border-color: var(--primary-color);
+    }
+
+    /* Fixed side banners */
     .instrument-left,
     .instrument-right {
       position: fixed;
-      bottom: 20px;
-      width: 100px;
-      opacity: 0.3;
-      filter: drop-shadow(0 0 3px rgba(179, 71, 0, 0.7));
+      bottom: 25px;
+      width: 110px;
+      opacity: 0.4;
+      filter: drop-shadow(0 0 7px var(--primary-color));
       z-index: 5;
-    }
-    .instrument-left {
-      left: 15px;
-      transform: rotate(-5deg);
-    }
-    .instrument-right {
-      right: 15px;
-      transform: rotate(5deg);
+      transition: opacity 0.3s ease;
     }
 
-    /* Girl Playing Veena (decorative near intro) */
+    .instrument-left {
+      left: 20px;
+      transform: rotate(-6deg);
+    }
+
+    .instrument-right {
+      right: 20px;
+      transform: rotate(6deg);
+    }
+
+    .instrument-left:hover,
+    .instrument-right:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    /* Girl Playing Veena */
     .girl-playing-veena {
       position: absolute;
-      top: 320px;
-      left: -60px;
-      width: 150px;
-      opacity: 0.15;
-      filter: drop-shadow(0 0 5px rgba(179, 71, 0, 0.4));
-      z-index: 3;
+      top: 360px;
+      left: -90px;
+      width: 180px;
+      opacity: 0.17;
+      filter: drop-shadow(0 0 8px var(--primary-color));
+      z-index: 4;
       pointer-events: none;
       user-select: none;
+      transition: opacity 0.5s ease;
     }
 
-    /* Diya near footer */
+    /* Diya Footer with gentle glow animation */
     .diya-footer {
       position: fixed;
-      bottom: 55px;
+      bottom: 85px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      opacity: 0.6;
-      filter: drop-shadow(0 0 10px #f5a623);
-      animation: gentle-glow 3s infinite alternate;
+      width: 90px;
+      opacity: 0.75;
+      filter: drop-shadow(0 0 15px var(--accent-gold));
+      animation: gentle-glow 3.5s infinite alternate;
       z-index: 6;
       pointer-events: none;
       user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .diya-footer:hover {
+      transform: translateX(-50%) scale(1.1);
+      filter: drop-shadow(0 0 25px var(--accent-gold));
+      cursor: default;
     }
 
     @keyframes gentle-glow {
       0% {
-        opacity: 0.5;
-        filter: drop-shadow(0 0 8px #f5a623);
+        opacity: 0.6;
+        filter: drop-shadow(0 0 12px var(--accent-gold));
       }
+
       100% {
-        opacity: 0.8;
-        filter: drop-shadow(0 0 16px #f5a623);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 28px var(--accent-gold));
       }
     }
 
     footer {
-      background: #b34700;
+      background: linear-gradient(90deg, var(--accent-gold), var(--primary-color));
       color: white;
-      padding: 12px 10px;
+      padding: 18px 10px;
       margin-top: 40px;
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       position: relative;
       z-index: 10;
-      border-top: 2px solid #f3d3b7;
+      border-top: 4px solid var(--accent-gold);
       font-family: 'Tangerine', cursive;
+      text-shadow: 2px 2px 8px var(--text-shadow);
+      box-shadow: inset 0 6px 8px rgba(212, 175, 55, 0.5);
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      .instrument-left,
-      .instrument-right {
-        display: none;
+    @media (max-width: 700px) {
+      .container {
+        margin: 20px 15px 0;
+        padding: 25px 20px 35px;
+        border-radius: 20px;
       }
+
+      .photo {
+        width: 170px;
+        height: 170px;
+      }
+
+      .instrument-left,
+      .instrument-right,
       .girl-playing-veena {
         display: none;
       }
-      .container {
-        padding: 15px 10px;
+
+      .diya-footer {
+        width: 65px;
+        bottom: 65px;
       }
-      .photo {
-        width: 150px;
-        height: 150px;
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
+
 <body>
   <!-- Decorative girl playing veena -->
   <img src="girl.png" alt="Girl playing Veena" class="girl-playing-veena" />
@@ -225,15 +375,15 @@
     <img src="portrait.jpg" alt="Nagashree Hari Prasad" class="photo" />
 
     <h1>Now in Mountain House!</h1>
-    <div class="divider"></div>
+    <div class="divider"><span></span></div>
     <h2>Learn Carnatic & Sugama Sangeetha with personal attention</h2>
 
     <p>
-      ಶಾಸ್ತ್ರೀಯ ಸಂಗೀತ || ಭಾವಗೀತೆ || ಭಕ್ತಿಗೀತೆ || ಜಾನಪದ
+      ಶಾಸ್ತ್ರೀಯ ಸಂಗೀತ || ಭಾವಗೀತೆ || ಭಕ್ತಿಗೀತೆ || ಜಾನಪದ || ಶ್ಲೋಕ
+      <br />
       Enhance your voice culture, rhythm, and confidence.
     </p>
 
-    <!-- INTRODUCTION -->
     <p class="intro">
       Smt. <b>Nagashree Hari Prasad</b> has been deeply immersed in the world of classical music for over
       16 years, dedicating her life to learning, performing, and sharing the rich traditions of Carnatic
@@ -243,10 +393,11 @@
       <br /><br />
       Alongside her performances, she has also discovered a passion for teaching. She has guided and groomed
       several young music enthusiasts, nurturing their talent with patience and care. Her students describe
-      her as a mentor who brings out the best in them, making the learning process both structured and joyful.
+      her as a mentor who brings out the best in them, making the learning process both structured and
+      joyful.
     </p>
 
-    <div class="contact">
+    <div class="contact" tabindex="0" aria-label="Contact information">
       📞 <b>Contact: 650-398-7286</b><br />
       ✉️ <b>Email: nagashreeprasad40@gmail.com</b>
     </div>
@@ -257,4 +408,5 @@
 
   <footer>© 2025 Sugama Sangeetha Classes | Preserving the tradition of Carnatic Music</footer>
 </body>
+
 </html>
