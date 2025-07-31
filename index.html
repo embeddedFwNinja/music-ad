@@ -237,6 +237,18 @@
       border-color: var(--primary-color);
     }
 
+    /* Make links inside contact look like text, underline on hover */
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover,
+    .contact a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
     /* Fixed side banners */
     .instrument-left,
     .instrument-right {
@@ -396,9 +408,10 @@
       She especially enjoys teaching children and young learners, patiently nurturing their musical talents. Her students appreciate her warm and encouraging approach, which makes learning both enjoyable and rewarding.
     </p>
 
+    <!-- CLICKABLE CONTACT -->
     <div class="contact" tabindex="0" aria-label="Contact information">
-      📞 <b>Contact: 650-398-7286</b><br />
-      ✉️ <b>Email: sugamasangeeta@gmail.com</b>
+      📞 <b><a href="tel:+16503987286">650-398-7286</a></b><br />
+      ✉️ <b><a href="mailto:sugamasangeeta@gmail.com">sugamasangeeta@gmail.com</a></b>
     </div>
   </div>
 
